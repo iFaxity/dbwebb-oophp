@@ -1,3 +1,5 @@
-#### Footer col 3
+#### Om sidan
 
-Med brödtext i ett stycke som säger något trevligt om just detta block, eller kanske en lista av länkar.
+Webbsidan använder sig av ramverket Anax för att “scaffolda” sidan.
+
+Markdown används även för att snabbt kunna redigera och formatera sidan.

@@ -23,4 +23,4 @@ I denna kursen ska vi gå igenom programmering i objektorienterad PHP.
 
 Vi använder även verktygen Anax & Git som i kursen design.
 
-[FIGURE src=img/php.svg width="400" caption="PHP's logotyp"]
+[FIGURE src=image/php.png?w=400 caption="PHP's logotyp"]

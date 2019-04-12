@@ -1,3 +1,3 @@
-#### Footer col 1
+#### Om sidan
 
-Med brödtext i ett stycke som säger något trevligt om just detta block, eller kanske en lista av länkar.
+Denna sidan är skapad som redovisningssida för kursen oophp på BTH.

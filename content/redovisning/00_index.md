@@ -1,6 +1,4 @@
----
----
 Redovisningstexter
 =========================
 
-Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/redovisning/00_index.md`.
+Välj en redovisning från menyn till vänster. Eller tryck på “next” uppe till höger (eller nere till höger).
