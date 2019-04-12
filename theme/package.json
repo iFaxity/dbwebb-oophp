@@ -1,0 +1,22 @@
+{
+  "name": "theme",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "node build.js"
+  },
+  "browserslist": [
+    "last 2 version"
+  ],
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "cssnano": "^4.1.10",
+    "postcss": "^7.0.14",
+    "postcss-cli": "^6.1.2",
+    "sass": "^1.18.0"
+  }
+}

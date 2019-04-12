@@ -1,0 +1,52 @@
+@import 'figure';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow: hidden scroll;
+    color: #000;
+    background-color: #dae3e7;
+    line-height: 1.15;
+}
+
+body {
+    font: 16px/1.5 Helvetica, Verdana, Arial, sans-serif;
+
+    max-width: 1150px;
+    background-color: #fff;
+    padding: 0;
+    margin: 0 auto;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, .2);
+}
+
+a {
+    color: $primary;
+
+    &:visited {
+        color: $secondary;
+    }
+
+    &:hover {
+        color: darken($secondary, 10%);
+    }
+}
+
+main {
+    padding: 0 2em 3em;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.figure {
+    @include desinax-figure(1150px);
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+}

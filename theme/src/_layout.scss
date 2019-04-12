@@ -1,0 +1,77 @@
+@import 'layout/header';
+@import 'layout/footer';
+
+main {
+    &.has-sidebar {
+        &-right {
+            display: grid;
+            grid-template-columns: auto 250px;
+            grid-gap: 1em;
+        }
+
+        &-left {
+            display: grid;
+            grid-template-columns: 250px auto;
+            grid-gap: 1em;
+    
+            &.has-sidebar-right {
+                grid-template-columns: 250px auto 250px;
+            }
+        }
+
+        @media screen and (max-width: 720px) {
+            &-right,
+            &-left {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
+
+.region-sidebar {
+    position: sticky;
+    top: 1em;
+
+    .wrapper {
+        position: sticky;
+        top: 1em;
+    }
+
+    h4 {
+        background: $primary;
+        color: $primaryText;
+        padding: 0.2em 1em;
+    }
+}
+
+.breadcrumb-list {
+    ul {
+        // Required to remove the ghost spacing between li elements
+        display: flex;
+    }
+
+    li {
+        display: inline;
+
+        &::after {
+            content: ">";
+            margin: 0 0.5em;
+        }
+    }
+}
+
+.next-previous {
+    display:flex;
+
+    .previous {
+        flex: 1;
+        text-align: left;
+        order: 1;
+    }
+
+    .next {
+        flex: 1;
+        text-align: right;
+        order: 2;
+    }
+}
