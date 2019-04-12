@@ -4,10 +4,9 @@
  */
 return [
     // Use for styling the menu
-    "id" => "rm-menu",
     "wrapper" => null,
-    "class" => "rm-default rm-mobile",
- 
+    "class" => "menu",
+
     // Here comes the menu items
     "items" => [
         [
