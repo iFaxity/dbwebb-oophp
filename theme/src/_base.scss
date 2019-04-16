@@ -1,4 +1,4 @@
-@import 'figure';
+@import 'modules/figure';
 
 * {
     box-sizing: border-box;
@@ -14,7 +14,7 @@ html {
 body {
     font: 16px/1.5 Helvetica, Verdana, Arial, sans-serif;
 
-    max-width: 1150px;
+    max-width: $maxContentWidth;
     background-color: #fff;
     padding: 0;
     margin: 0 auto;
@@ -42,11 +42,16 @@ main {
     }
 }
 
-.figure {
-    @include desinax-figure(1150px);
+// Enable figure module
+figure.figure {
+    @include desinax-figure($maxContentWidth);
+}
 
-    img {
-        max-width: 100%;
-        display: block;
-    }
+figure.asciinema {
+    @include desinax-asciinema($maxContentWidth);
+}
+
+figure.codepen,
+figure.figure-codepen {
+    @include desinax-codepen($maxContentWidth);
 }

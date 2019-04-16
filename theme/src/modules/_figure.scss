@@ -1,7 +1,23 @@
-/** --------------------------------------------------------------
- * Figure through .figure
- */
+// Variables
 $magicNumber: 24px;
+
+@mixin desinax-codepen($maxContentWidth: 1100px) {
+    @include desinax-figure($maxContentWidth);
+    width: 100%;
+}
+
+@mixin desinax-asciinema($maxContentWidth: 1100px) {
+    @include desinax-figure($maxContentWidth);
+    display: block;
+
+    figcaption {
+        display: block;
+    }
+
+    .asciicast {
+        margin: 0 !important;
+    }
+}
 
 @mixin desinax-figure($maxContentWidth: 1100px) {
     display: table;
