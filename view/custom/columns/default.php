@@ -16,13 +16,13 @@ namespace Anax\View;
     $template = isset($column["template"])
         ? $column["template"]
         : __DIR__ . "/../block/default";
-?>
+    ?>
 
     <div class="column">
-    <?php
-        $data = isset($column["data"]) ? $column["data"] : $column;
-        renderView($template, $data);
-    ?>
+        <?php
+            $data = isset($column["data"]) ? $column["data"] : $column;
+            renderView($template, $data);
+        ?>
     </div>
 
 <?php endforeach; ?>

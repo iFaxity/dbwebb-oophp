@@ -129,17 +129,17 @@ if ($route) {
 
 
 <?php
-    $sidebarLeft  = regionHasContent("sidebar-left");
-    $sidebarRight = regionHasContent("sidebar-right");
-    $class = [];
+$sidebarLeft  = regionHasContent("sidebar-left");
+$sidebarRight = regionHasContent("sidebar-right");
+$class = [];
 
-    if ($sidebarLeft) {
-        $class[] = "has-sidebar-left";
-    }
+if ($sidebarLeft) {
+    $class[] = "has-sidebar-left";
+}
 
-    if ($sidebarRight) {
-        $class[] = "has-sidebar-right";
-    }
+if ($sidebarRight) {
+    $class[] = "has-sidebar-right";
+}
 ?>
 
 <!-- main -->

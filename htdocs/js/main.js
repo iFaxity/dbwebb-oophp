@@ -17,6 +17,7 @@
 
         if (classList.contains('submenu-icon')) {
             const $parent = target.parentNode;
+
             $parent.classList.toggle('open');
         }
     }, false);

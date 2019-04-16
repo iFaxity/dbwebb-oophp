@@ -52,6 +52,6 @@ function renderFile() {
 }
 
 fs.watch(SRC_DIR, () => renderFile());
-fs.watch(path.join(SRC_DIR, 'layout'), () => renderFile())
+fs.watch(path.join(SRC_DIR, 'layout'), () => renderFile());
 
 renderFile();
