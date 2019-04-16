@@ -9,7 +9,7 @@ namespace Anax\View;
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 
-$navbar = new \Custom\Navbar();
+$navbar = new \Faxity\Navbar\Navbar();
 $navbar->setDI($di);
 $html = $navbar->createMenuWithSubMenus($navbarConfig);
 

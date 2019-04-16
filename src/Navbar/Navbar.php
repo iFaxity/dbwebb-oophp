@@ -1,6 +1,6 @@
 <?php
 
-namespace Custom;
+namespace Faxity\Navbar;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;

@@ -12,7 +12,7 @@ namespace Anax\View;
 ?>
 
 <div class="columns">
-<?php foreach ($columns as $column) :
+    <?php foreach ($columns as $column) :
     $template = isset($column["template"])
         ? $column["template"]
         : __DIR__ . "/../block/default";
@@ -20,10 +20,10 @@ namespace Anax\View;
 
     <div class="column">
         <?php
-            $data = isset($column["data"]) ? $column["data"] : $column;
-            renderView($template, $data);
+        $data = isset($column["data"]) ? $column["data"] : $column;
+        renderView($template, $data);
         ?>
     </div>
 
-<?php endforeach; ?>
+    <?php endforeach; ?>
 </div>
