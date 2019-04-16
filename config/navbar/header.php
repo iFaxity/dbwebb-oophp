@@ -74,6 +74,11 @@ return [
             "title" => "Dokumentation av ramverk och liknande.",
         ],
         [
+            "text" => "Guess",
+            "url" => "guess",
+            "title" => "Ett gissa numret spel",
+        ],
+        [
             "text" => "Test &amp; Lek",
             "url" => "lek",
             "title" => "Testa och lek med test- och exempelprogram",
