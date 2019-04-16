@@ -1,28 +1,30 @@
 <?php
 
-$cheat  = $app->session->has("cheat");
-$result = $app->session->get("result");
-$guess  = $app->session->get("guess");
+namespace Anax\View;
 
-if (!isset($guess)) {
-    // Save guess object in session
-    $guess = new \Faxity\Guess\Guess();
+/**
+ * Template file to render a view.
+ */
 
-    $app->session->set("guess", $guess);
-}
-
-$guesses = $guess->guesses();
+// Show incoming variables and view helper functions
+//echo showEnvironment(get_defined_vars(), get_defined_functions());
 ?>
 
 <main>
     <h1>Guess the number</h1>
-    <p>Guess a number between 1 and 100, you have <?= $guess->tries() ?> tries left.</p>
+    <p>Guess a number between 1 and 100, you have <?= $tries ?> tries left.</p>
 
-    <form method="post" action="">
-        <input type="number" name="guess" value="<?= $guess->lastGuess() ?>">
-        <button type="submit" name="action" value="guess">Guess</button>
-        <button type="submit" name="action" value="reset">Reset</button>
-        <button type="submit" name="action" value="cheat">Cheat</button>
+    <form class="inline" method="post" action="">
+        <input type="number" name="guess" value="<?= $lastGuess ?>">
+        <button type="submit">Guess</button>
+    </form>
+
+    <form class="inline" method="post" action="guess/cheat">
+        <button type="submit">Cheat</button>
+    </form>
+
+    <form class="inline" method="post" action="guess/reset">
+        <button type="submit">Reset</button>
     </form>
 
     <?php if (!empty($guesses)) : ?>
@@ -39,6 +41,6 @@ $guesses = $guess->guesses();
     <?php endif; ?>
 
     <?php if (!empty($cheat)) : ?>
-        <p>Psst, the number is: <?= $guess->number() ?></p>
+        <p>Psst, the number is: <?= $number ?></p>
     <?php endif; ?>
 </main>
