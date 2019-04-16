@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
 // Simple script to build a .scss file to .css
-// Using postcss for autoprefixing nad minifying
+// Using postcss for autoprefixing and minifying
+const fs           = require('fs');
+const path         = require('path');
+
 const sass         = require('sass');
 const autoprefixer = require('autoprefixer');
 const cssnano      = require('cssnano');
 const postcss      = require('postcss');
-const fs           = require('fs');
-const path         = require('path');
 
 const CWD = process.cwd();
 const SRC_DIR = path.join(__dirname, 'src');
@@ -47,11 +48,26 @@ function renderFile() {
                 print('Theme updated');
             });
     } catch (ex) {
-        console.error(ex.message);
+        print(`Error: ${ex.message}`);
     }
 }
 
-fs.watch(SRC_DIR, () => renderFile());
-fs.watch(path.join(SRC_DIR, 'layout'), () => renderFile());
+function watchRecursive(dirpath, callback) {
+    const files = fs.readdirSync(dirpath);
 
+    for (let file of files) {
+        const filepath = path.join(dirpath, file);
+        const stat = fs.statSync(filepath);
+
+        if (stat.isDirectory()) {
+            watchRecursive(filepath, callback);
+        }
+    }
+
+    // Watch directory
+    fs.watch(dirpath, callback);
+}
+
+watchRecursive(SRC_DIR, () => renderFile());
 renderFile();
+
