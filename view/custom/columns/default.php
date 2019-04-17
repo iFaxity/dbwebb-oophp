@@ -13,10 +13,10 @@ namespace Anax\View;
 
 <div class="columns">
     <?php foreach ($columns as $column) :
-    $template = isset($column["template"])
-        ? $column["template"]
-        : __DIR__ . "/../block/default";
-    ?>
+        $template = isset($column["template"])
+            ? $column["template"]
+            : __DIR__ . "/../block/default";
+        ?>
 
     <div class="column">
         <?php

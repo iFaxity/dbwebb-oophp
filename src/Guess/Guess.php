@@ -80,7 +80,7 @@ class Guess
 
     /**
      * An array for getting which numbers has been guessed
-     * 
+     *
      * @return array as a list of integers.
      */
     public function guesses()
@@ -91,7 +91,7 @@ class Guess
 
     /**
      * Gets which number was guessed last
-     * 
+     *
      * @return int as a guessed number.
      */
     public function lastGuess()
@@ -110,7 +110,7 @@ class Guess
     /**
      * Make a guess, decrease remaining guesses and return a string stating
      * if the guess was correct, too low or to high or if no guesses remains.
-     * 
+     *
      * @throws GuessException when guessed number is out of bounds.
      *
      * @return string to show the status of the guess made.
