@@ -4,7 +4,7 @@ title: "Om mig"
 Min me-sida i kursen oophp
 =========================
 
-[FIGURE src="image/me.jpg?width=400" class="right" caption="Bild på mig för ett antal år sedan på resa till Taizé i Frankrike"]
+[FIGURE src="image/me.jpg?width=400" class="right w33" caption="Bild på mig för ett antal år sedan på resa till Taizé i Frankrike"]
 
 Mitt namn är Christian Norrman och bor i Åhus, Skåne, ungefär 1,7 mil utanför Kristianstad.
 Har bott här i princip hela mitt liv tills jag började plugga Datorsäkerhet på BTH i Karlskrona 2016 på höstterminen.
