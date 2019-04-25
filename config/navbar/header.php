@@ -19,42 +19,40 @@ return [
             "url" => "redovisning",
             "title" => "Redovisningstexter från kursmomenten.",
             "submenu" => [
-                "items" => [
-                    [
-                        "text" => "Kmom01",
-                        "url" => "redovisning/kmom01",
-                        "title" => "Redovisning för kmom01.",
-                    ],
-                    [
-                        "text" => "Kmom02",
-                        "url" => "redovisning/kmom02",
-                        "title" => "Redovisning för kmom02.",
-                    ],
-                    [
-                        "text" => "Kmom03",
-                        "url" => "redovisning/kmom03",
-                        "title" => "Redovisning för kmom03.",
-                    ],
-                    [
-                        "text" => "Kmom04",
-                        "url" => "redovisning/kmom04",
-                        "title" => "Redovisning för kmom04.",
-                    ],
-                    [
-                        "text" => "Kmom05",
-                        "url" => "redovisning/kmom05",
-                        "title" => "Redovisning för kmom05.",
-                    ],
-                    [
-                        "text" => "Kmom06",
-                        "url" => "redovisning/kmom06",
-                        "title" => "Redovisning för kmom06.",
-                    ],
-                    [
-                        "text" => "Kmom10",
-                        "url" => "redovisning/kmom10",
-                        "title" => "Redovisning för kmom10.",
-                    ],
+                [
+                    "text" => "Kmom01",
+                    "url" => "redovisning/kmom01",
+                    "title" => "Redovisning för kmom01.",
+                ],
+                [
+                    "text" => "Kmom02",
+                    "url" => "redovisning/kmom02",
+                    "title" => "Redovisning för kmom02.",
+                ],
+                [
+                    "text" => "Kmom03",
+                    "url" => "redovisning/kmom03",
+                    "title" => "Redovisning för kmom03.",
+                ],
+                [
+                    "text" => "Kmom04",
+                    "url" => "redovisning/kmom04",
+                    "title" => "Redovisning för kmom04.",
+                ],
+                [
+                    "text" => "Kmom05",
+                    "url" => "redovisning/kmom05",
+                    "title" => "Redovisning för kmom05.",
+                ],
+                [
+                    "text" => "Kmom06",
+                    "url" => "redovisning/kmom06",
+                    "title" => "Redovisning för kmom06.",
+                ],
+                [
+                    "text" => "Kmom10",
+                    "url" => "redovisning/kmom10",
+                    "title" => "Redovisning för kmom10.",
                 ],
             ],
         ],
@@ -77,6 +75,11 @@ return [
             "text" => "Guess",
             "url" => "guess",
             "title" => "Ett gissa numret spel",
+        ],
+        [
+            "text" => "100",
+            "url" => "dice100",
+            "title" => "Tärningsspelet 100",
         ],
         [
             "text" => "Test &amp; Lek",
