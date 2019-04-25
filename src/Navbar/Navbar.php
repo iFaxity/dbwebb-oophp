@@ -105,7 +105,7 @@ class Navbar
                 $subMenuClass = " class=\"submenu\"";
 
                 if (isset($item["submenu"])) {
-                    list($subMenu, $selectedParent) = $createMenu($item["submenu"]["items"], null, $subMenuClass);
+                    list($subMenu, $selectedParent) = $createMenu($item["submenu"], null, $subMenuClass);
                     $selectedParent = $selectedParent
                         ? "selected-parent "
                         : null;
@@ -139,7 +139,6 @@ class Navbar
                     : null;
 
                 // Add the menu item
-                // $url = $menu["create_url"]($item["url"]);
                 $url = $this->url($item["url"]);
                 $html .= "\n<li{$class}><a href='{$url}' title='{$item['title']}'>{$item['text']}</a>{$subMenuIcon}{$subMenu}</li>\n";
 
