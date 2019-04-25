@@ -21,6 +21,6 @@ $session = $di->get("session");
 <pre><?= var_dump($session) ?></pre>
 
 <p>
-    <a href="<?= url($mount."session/increment") ?>">Add to session and increment<a> |
-    <a href="<?= url($mount."session/destroy") ?>">Destroy session<a>
+    <a href="<?= url($mount."session/increment") ?>">Add to session and increment</a> |
+    <a href="<?= url($mount."session/destroy") ?>">Destroy session</a>
 </p>
