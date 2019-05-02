@@ -16,7 +16,7 @@ class Dice100
      */
     public function __construct()
     {
-        $this->cpu = new Player();
+        $this->cpu = new CPU();
         $this->player = new Player();
     }
 
@@ -95,7 +95,7 @@ class Dice100
     /**
      * Checks if a player has won yet
      *
-     * @return boolean.
+     * @return bool.
      */
     public function gameOver()
     {
