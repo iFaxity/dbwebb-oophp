@@ -50,7 +50,7 @@ return [
             "region" => "header-mobile",
             "template" => "custom/navbar/responsive",
             "data" => [
-                "navbarConfig" => require __DIR__ . "/navbar/responsive.php",
+                "navbarConfig" => require __DIR__ . "/navbar/header.php",
             ],
         ],
         [

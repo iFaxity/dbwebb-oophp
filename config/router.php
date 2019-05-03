@@ -15,13 +15,10 @@ return [
     // Load routes in order, start with these and the those found in
     // router/*.php.
     "routes" => [
-        // [
-        //     "info" => "Just say hi.",
-        //     "method" => null,
-        //     "path" => "",
-        //     "handler" => function () {
-        //         return ["Anax: Just saying Hi!", 200];
-        //     },
-        // ],
+        [
+            "info" => "Dice game controller.",
+            "mount" => "d100",
+            "handler" => "\Faxity\Dice\DiceController",
+        ],
     ],
 ];
