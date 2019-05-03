@@ -72,14 +72,26 @@ return [
             "title" => "Dokumentation av ramverk och liknande.",
         ],
         [
-            "text" => "Guess",
-            "url" => "guess",
-            "title" => "Ett gissa numret spel",
-        ],
-        [
-            "text" => "100",
-            "url" => "dice100",
-            "title" => "Tärningsspelet 100",
+            "text" => "Spel",
+            "url" => "spel",
+            "title" => "Spela spel som jag gjort.",
+            "submenu" => [
+                [
+                    "text" => "Guess",
+                    "url" => "guess",
+                    "title" => "Ett gissa numret spel",
+                ],
+                [
+                    "text" => "100",
+                    "url" => "dice100",
+                    "title" => "Tärningsspelet 100",
+                ],
+                [
+                    "text" => "100 v2",
+                    "url" => "d100",
+                    "title" => "Tärningsspelet 100, version 2",
+                ],
+            ],
         ],
         [
             "text" => "Test &amp; Lek",

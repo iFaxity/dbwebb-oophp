@@ -36,7 +36,7 @@ class Navbar
      *
      * @param: string $url to check for.
      *
-     * @return boolean true if item is selected, else false.
+     * @return bool true if item is selected, else false.
      */
     public function check($url)
     {
