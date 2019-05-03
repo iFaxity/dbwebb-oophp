@@ -21,5 +21,5 @@ $session->destroy();
 <pre><?= var_dump($session) ?></pre>
 
 <p>
-    <a href="<?= url($mount."session") ?>">Back to session<a>
+    <a href="<?= url($mount."session") ?>">Back to session</a>
 </p>
