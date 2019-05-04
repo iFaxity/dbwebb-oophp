@@ -18,6 +18,7 @@ class CPUTest extends TestCase
             $score = $cpu->score();
 
             $cpu->toss();
+            $cpu->endTurn();
 
             // CPU should only stop tossing if score was 0 or if it wants to end itself
             $this->assertTrue(($cpu->score() - $score) == 0 || $cpu->shouldEndTurn());
