@@ -5,27 +5,29 @@ namespace Faxity\Dice;
 /**
  * Class to represent a player in the dice game 100
  */
-class Player
+class Player implements HistogramInterface
 {
+    use HistogramTrait;
+
     /**
      * @var int $score The current secured score of the user
      * @var array $dice The dices this player has
      * @var int $turnScore The score the player has not yet secured
-     * @var array $serie The dice rolls that has happened
-     * @var int DIE_COUNT The amount of dices the player holds
+     * @var int $tosses All toss values of every player
+     * @var int DICE_COUNT The amount of dices the player holds
      */
     private $score = 0;
     protected $dice = [];
     protected $turnScore = 0;
-    protected static $serie = [];
-    const DIE_COUNT = 6;
+    protected static $tosses = [];
+    const DICE_COUNT = 6;
 
     /**
      * Instiansiates a new Player class
      */
     public function __construct()
     {
-        for ($i = 0; $i < self::DIE_COUNT; $i++) {
+        for ($i = 0; $i < self::DICE_COUNT; $i++) {
             $this->dice[] = new Dice();
         }
     }
@@ -58,42 +60,12 @@ class Player
     }
 
     /**
-     * Tosses the dice and adds to the turnScore
-     * If we tossed a 1 the turnScore is reset
-     * @return void.
+     * Checks if we should render the player
+     * @return bool.
      */
-    public function toss() : void
+    public function shouldRender() : bool
     {
-        // If we start a new round, our tosses need to be reset
-        if ($this->turnScore == 0) {
-            $this->clearToss();
-        }
-
-        $reset = false;
-
-        foreach ($this->dice as $die) {
-            $toss = $die->toss();
-            $toss == 1 && $reset = true;
-
-            self::$serie[] = $toss;
-            $this->turnScore += $toss;
-        }
-
-        // Reset score if player rolled a 1
-        if ($reset) {
-            $this->turnScore = 0;
-        }
-    }
-
-    /**
-     * Clears the tosses made this turn
-     * @return void.
-     */
-    public function clearToss() : void
-    {
-        foreach ($this->dice as $die) {
-            $die->endTurn();
-        }
+        return !empty($this->serie);
     }
 
     /**
@@ -107,33 +79,72 @@ class Player
     }
 
     /**
+     * Tosses the dice and adds to the turnScore
+     * If we tossed a 1 the turnScore is reset
+     * @return void.
+     */
+    public function toss() : void
+    {
+        // If we start a new round, our tosses need to be reset
+        if ($this->turnScore == 0) {
+            $this->clearSerie();
+        }
+
+        $reset = false;
+
+        foreach ($this->dice as $die) {
+            $toss = $die->toss();
+            $toss == 1 && $reset = true;
+
+            // tosses are used for CPU to get all tosses
+            self::$tosses[] = $toss;
+            $this->serie[] = $toss;
+            $this->turnScore += $toss;
+        }
+
+        // Reset score if player rolled a 1
+        if ($reset) {
+            $this->turnScore = 0;
+        }
+    }
+
+    /**
      * Renders html to represent the last toss(es)
      * @return string.
      */
     public function render() : string
     {
-        $turn = 0;
+        $res = "";
 
-        // Sort dice renders into a 2 dimensional array
-        $rendered = array_reduce($this->dice, function ($acc, $die) {
-            $res = $die->render();
+        for ($offset = 0; $offset < count($this->serie); $offset += Dice::SIDES) {
+            $turn = 1 + ($offset / Dice::SIDES);
+            $values = array_slice($this->serie, $offset, Dice::SIDES);
 
-            for ($i = 0; $i < count($res); $i++) {
-                if (!array_key_exists($i, $acc)) {
-                    $acc[$i] = "";
-                }
+            $res .= $this->renderTurn($turn, $values);
+        }
 
-                $acc[$i] .= $res[$i];
-            }
+        // Enclose the dice rolls with info about the round
+        if (!empty($res)) {
+            $name = $this instanceof CPU ? "Servern" : "Du";
 
-            return $acc;
-        }, []);
+            $res = <<<EOT
+            <div class="player">
+                <h2>{$name} slog:</h2>
+                <p>Poäng denna runda: {$this->turnScore}</p>
+                {$res}
+            </div>
+EOT;
+        }
 
+        return $res;
+    }
 
-        return array_reduce($rendered, function ($acc, $str) use (&$turn) {
-            $turn++;
-
-            return $acc . "<div class=\"dice-turn\"><p>Kast #{$turn}:</p>{$str}</div>";
+    private function renderTurn(int $turn, array $values) : string
+    {
+        $res = array_reduce($values, function ($acc, $value) use ($turn) {
+            return $acc . "<svg class=\"dice\"><use xlink:href=\"#icon-dice-{$value}\" /></svg>";
         }, "");
+
+        return "<div class=\"dice-turn\"><p>Kast #{$turn}:</p>{$res}</div>";
     }
 }

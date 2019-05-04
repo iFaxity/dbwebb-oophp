@@ -15,11 +15,11 @@ class CPU extends Player
     public function shouldEndTurn() : bool
     {
         // We dont want to play on exact probability, i added a + 2 to play more safely
-        $oneCount = count(array_keys(self::$serie, 1, true));
+        $oneCount = count(array_keys(self::$tosses, 1, true));
         $prob = 1 / (Dice::SIDES + 2);
 
         // only chance if its likely a one wont show up, based on past occurences
-        return ($oneCount / count(self::$serie)) <= $prob;
+        return ($oneCount / count(self::$tosses)) <= $prob;
     }
 
     /**
@@ -29,6 +29,8 @@ class CPU extends Player
      */
     public function toss() : void
     {
+        $this->endTurn();
+
         while (true) {
             parent::toss();
 
@@ -38,7 +40,5 @@ class CPU extends Player
                 break;
             }
         }
-
-        $this->endTurn();
     }
 }

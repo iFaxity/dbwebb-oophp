@@ -5,7 +5,7 @@ namespace Faxity\Dice;
 /**
  * Game handler for dice 100 game
  */
-class Game
+class Game extends Histogram
 {
     /**
      * @var int $cpu The CPU player aka the server
@@ -29,12 +29,13 @@ class Game
      */
     public function toss() : void
     {
-        $this->cpu->clearToss();
+        $this->serie = [];
+        $this->cpu->clearSerie();
         $this->player->toss();
 
         // Player got a 0 when tossing dice, end turn
         if ($this->player->turnScore() == 0) {
-            $this->endTurn();
+            $this->endTurn(false);
         }
     }
 
@@ -42,8 +43,12 @@ class Game
      * Ends the turn for the player and lets the cpu roll
      * @return void.
      */
-    public function endTurn() : void
+    public function endTurn($clearSerie = true) : void
     {
+        if ($clearSerie) {
+            $this->player->clearSerie();
+        }
+
         $this->player->endTurn();
         $this->cpu->toss(); // automatically ends turn
     }
@@ -73,18 +78,33 @@ class Game
     public function render() : string
     {
         $res = "";
-        $player = $this->player->render();
-        $cpu =    $this->cpu->render();
+        $playerRenders = [];
 
-        if (!empty($player)) {
-            $res .= "<h2>Du slog:</h2>";
-            $res .= "<p>Poäng denna runda: {$this->player->turnScore()}</p>";
-            $res .= $player;
+        if ($this->player->shouldRender()) {
+            $playerRenders[] = $this->player->render();
         }
 
-        if (!empty($cpu)) {
-            $res .= "<h2>Servern slog:</h2>";
-            $res .= $cpu;
+        if ($this->cpu->shouldRender()) {
+            $playerRenders[] = $this->cpu->render();
+        }
+
+        // render histogram
+        if (!empty($playerRenders)) {
+            // Set data to the histogram before rendering
+            $this->injectData($this->player, $this->cpu);
+
+            // Render the player tosses and stats
+            $res .= "<div class=\"players\">";
+            foreach ($playerRenders as $str) {
+                $res .= $str;
+            }
+            $res .= "</div>";
+
+            // Render the histogram
+            $res .= "<div class=\"histogram\">";
+            $res .= "<h2>Histogram för rundan</h2>";
+            $res .= $this->renderHistogram();
+            $res .= "</div>";
         }
 
         return $res;
