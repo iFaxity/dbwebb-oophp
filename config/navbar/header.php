@@ -94,6 +94,11 @@ return [
             ],
         ],
         [
+            "text" => "Filmer",
+            "url" => "movie",
+            "title" => "Lista med filmer",
+        ],
+        [
             "text" => "Test &amp; Lek",
             "url" => "lek",
             "title" => "Testa och lek med test- och exempelprogram",

@@ -20,5 +20,10 @@ return [
             "mount" => "d100",
             "handler" => "\Faxity\Dice\DiceController",
         ],
+        [
+            "info" => "Movie controller.",
+            "mount" => "movie",
+            "handler" => "\Faxity\Movie\MovieController",
+        ],
     ],
 ];
