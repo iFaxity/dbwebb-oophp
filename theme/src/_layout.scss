@@ -1,6 +1,7 @@
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/form';
+@import 'layout/movie';
 
 main {
     &.has-sidebar {
@@ -14,7 +15,7 @@ main {
             display: grid;
             grid-template-columns: 250px auto;
             grid-gap: 1em;
-    
+
             &.has-sidebar-right {
                 grid-template-columns: 250px auto 250px;
             }
