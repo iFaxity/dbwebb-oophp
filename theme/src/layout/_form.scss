@@ -1,5 +1,94 @@
+select,
+input,
+textarea {
+    display: block;
+    width: 500px;
+    border: 1px solid #dae3e7;
+    border-radius: 0.2rem;
+    outline: none;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    background: #fff;
+    line-height: 1;
+
+    &:hover {
+        border-color: lighten($secondary, 35%);
+    }
+
+    &:focus {
+        border-color: $secondary;
+    }
+
+    &:disabled {
+        border-color: #dae3e7 !important;
+        background: #eee !important;
+    }
+}
+
+select,
+input {
+    height: 2.5rem;
+}
+
+textarea {
+    resize: none;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
 form {
+    padding: 0 1em;
+
     &.inline {
         display: inline;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    form {
+        select,
+        input,
+        textarea {
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            margin: 0;
+        }
+    }
+}
+
+
+// Material like button
+a.button,
+button {
+    margin: 0 0.5em 1em;
+    display: inline-block;
+    background: $primary;
+    color: darken($primaryText, 6%);
+    padding: 0.5em 1.5em;
+    font-size: 1.1em;
+    line-height: 1;
+    box-shadow: 0 4px 4px 0 #e0e0e0;
+    border: none;
+    border-radius: 0.2em;
+    transition: box-shadow 0.2s ease;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        cursor: pointer;
+        color: $primaryText;
+        box-shadow: 0 8px 4px 0 #e0e0e0;
+    }
+
+    &.red {
+        background: #dd1818;
     }
 }
