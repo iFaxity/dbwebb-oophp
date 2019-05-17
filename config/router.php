@@ -25,5 +25,15 @@ return [
             "mount" => "movie",
             "handler" => "\Faxity\Movie\MovieController",
         ],
+        [
+            "info" => "Content CMS controller.",
+            "mount" => "content",
+            "handler" => "\Faxity\Content\ContentController",
+        ],
+        [
+            "info" => "TextFilter test.",
+            "mount" => "textfilter",
+            "handler" => "\Faxity\TextFilterer\TextFilterController",
+        ],
     ],
 ];

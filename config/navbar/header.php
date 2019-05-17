@@ -99,6 +99,33 @@ return [
             "title" => "Lista med filmer",
         ],
         [
+            "text" => "CMS System",
+            "url" => "content",
+            "title" => "CMS System",
+            "submenu" => [
+                [
+                    "text" => "Blogg",
+                    "url" => "content/blog",
+                    "title" => "CMS Blogg",
+                ],
+                [
+                    "text" => "Admin panel",
+                    "url" => "content/admin",
+                    "title" => "CMS admin panel",
+                ],
+                [
+                    "text" => "Skapa inlägg",
+                    "url" => "content/create",
+                    "title" => "Skapa nytt inlägg",
+                ],
+            ],
+        ],
+        [
+            "text" => "Textfilter",
+            "url" => "textfilter",
+            "title" => "TextFilter test",
+        ],
+        [
             "text" => "Test &amp; Lek",
             "url" => "lek",
             "title" => "Testa och lek med test- och exempelprogram",
